@@ -11,5 +11,8 @@
     "Checkout"
   ],
   "author": "Andy Hammond",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^23.2.0"
+  }
 }

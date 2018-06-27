@@ -1,6 +1,5 @@
-const Checkout = require('./src/Checkout.js');
 
-const rules = {
+const Rules = {
     items: {
         A: {
             id: 'A',
@@ -34,7 +33,8 @@ const rules = {
         }
     },
     basketPromotions: [
-        {
+        {   
+            id: 1,
             ruleType: 'is-over',
             ruleValue: 150,
             promotionType: 'apply-discount-value-gbp',
@@ -43,10 +43,4 @@ const rules = {
     ]
 };
 
-let co = new Checkout(rules);
-
-co.scan({id: 'B', quantity: 2});
-
-let total = co.total;
-
-
+module.exports = Rules;
