@@ -1,0 +1,15 @@
+{
+  "name": "koru-kids-checkout",
+  "version": "1.0.0",
+  "description": "A test given to me by Michael Baird!",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "Test",
+    "Checkout"
+  ],
+  "author": "Andy Hammond",
+  "license": "ISC"
+}
