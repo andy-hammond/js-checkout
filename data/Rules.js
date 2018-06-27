@@ -6,7 +6,6 @@ const Rules = {
             price: 30,
             promotions: [
                 {
-                    id: 'A',
                     quantity: 3,
                     price: 75
                 }
@@ -17,7 +16,6 @@ const Rules = {
             price: 20,
             promotions: [
                 {
-                    id: 'B',
                     quantity: 2,
                     price: 35
                 }
