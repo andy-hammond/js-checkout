@@ -28,6 +28,16 @@ const testBaskets = [
         description: "Single value as a string",
         items: 'A',
         result: 30
+    }, 
+    {
+        description: "Doubling up a promotion is allowed - test #1",
+        items: [{id: "A", quantity: 6}],
+        result: 150
+    }, 
+    {
+        description: "Doubling up a promotion is allowed - test #2",
+        items: [{id: "B", quantity: 6}],
+        result: 105
     }
 ]
 
