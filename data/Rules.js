@@ -2,7 +2,6 @@
 const Rules = {
     items: {
         A: {
-            id: 'A',
             price: 30,
             promotions: [
                 {
@@ -12,7 +11,6 @@ const Rules = {
             ]
         },
         B: {
-            id: 'B',
             price: 20,
             promotions: [
                 {
@@ -22,11 +20,9 @@ const Rules = {
             ]
         },
         C: {
-            id: 'C',
             price: 50
         },
         D: {
-            id: 'D',
             price: 15
         }
     },

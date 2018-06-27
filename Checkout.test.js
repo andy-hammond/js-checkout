@@ -24,14 +24,24 @@ const testBaskets = [
         ],
         result: 155
     },
-    
+    {
+        description: "Single value as a string",
+        items: 'A',
+        result: 30
+    }
 ]
 
 // Function to loop through basket and scan items
 const scanItems = (co, items) => {
-    items.map(function(i, x){
-        co.scan(i);
-    });
+ 
+    if(typeof items === 'object'){
+        items.map(function(i, x){
+            co.scan(i);
+        });
+    } else if(typeof items === 'string'){
+        co.scan(items)
+    }
+    
     return co;
 }
 

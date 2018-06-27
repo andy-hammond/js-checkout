@@ -23,6 +23,14 @@ const Checkout = function(rules) {
     // Function for scanning one item at a time
     this.scan = function(item){
 
+        // Just one item? Pass in the id on its own (assuming a letter) and we build the object
+        if(typeof item === 'string'){
+            item = {
+                id: item,
+                quantity: 1
+            }
+        }
+
         const itemRule = this.rules.items[item.id];
         const appliedPromotions = this.appliedPromotions;
         let itemPrice = item.quantity * itemRule.price;
