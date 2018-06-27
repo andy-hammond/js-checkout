@@ -40,7 +40,7 @@ const Checkout = function(rules) {
         if(typeof itemRule.promotions !== 'undefined'){
             itemRule.promotions.map(function(p, x){
                 // Check if it's a match!
-                if(item.quantity === p.quantity) itemPrice = p.price
+                if(item.quantity/p.quantity >= 1) itemPrice = p.price * (item.quantity/p.quantity)
             });
         }
 
@@ -49,12 +49,13 @@ const Checkout = function(rules) {
         // Process basket promotions
         this.rules.basketPromotions.map(function(bp, x){
            
-            if(appliedPromotions.indexOf(bp.id) !== -1) return;
+            if(typeof appliedPromotions.find(promo => promo.id === bp.id) !== 'undefined') return;
 
             if(bp.ruleType === "is-over" && revisedTotal > bp.ruleValue) {
                 
+                let totalBeforePromo = revisedTotal;
                 revisedTotal = applyPromo(bp, revisedTotal);
-                appliedPromotions.push(bp.id)
+                appliedPromotions.push({id: bp.id, before: totalBeforePromo});
                 
             }
             
