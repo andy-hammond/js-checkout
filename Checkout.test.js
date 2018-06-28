@@ -38,6 +38,16 @@ const testBaskets = [
         description: "Doubling up a promotion is allowed - test #2",
         items: [{id: "B", quantity: 6}],
         result: 105
+    },
+    {
+        description: "One by one",
+        items: [{id: "B", quantity: 1}, {id: "B", quantity: 1}, {id: "B", quantity: 1}],
+        result: 55
+    },
+    {
+        description: "Scanned out of order - do I still my promotion on A?",
+        items: [{id: "A", quantity: 1}, {id: "B", quantity: 1}, {id: "A", quantity: 1}, {id: "A", quantity: 1}, {id: "B", quantity: 1}],
+        result: 110
     }
 ]
 
