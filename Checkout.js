@@ -1,4 +1,4 @@
-const Checkout = function(rules) {
+const Checkout = (rules) => {
 
     // Store rules against the object, incase required in the future
     this.rules = rules;
@@ -12,7 +12,7 @@ const Checkout = function(rules) {
     this.appliedPromotions = []
 
     // Function for applying a promotion
-    const applyPromo = function(promotion, currentTotal){
+    const applyPromo = (promotion, currentTotal) => {
        
         switch(promotion.promotionType){
             case "apply-discount-value-gbp": {
@@ -24,7 +24,7 @@ const Checkout = function(rules) {
         return newTotal;
     }
 
-    this.calculateTotal = function(){
+    this.calculateTotal = () => {
 
         let total = 0;
         
@@ -44,7 +44,7 @@ const Checkout = function(rules) {
     }
 
     // Function for scanning one item at a time
-    this.scan = function(item){
+    this.scan = (item) => {
 
         // Just one item? Pass in the id on its own (assuming a letter) and we build the object
         if(typeof item === 'string'){
