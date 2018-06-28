@@ -1,19 +1,25 @@
-const Checkout = function(rules) {
+class Checkout  {
 
-    // Store rules against the object, incase required in the future
-    this.rules = rules;
+    constructor(rules){
 
-    // Set initial total to Zero
-    this.total = 0;
+        // Store rules against the object, incase required in the future
+        this.rules = rules;
 
-    this.items = [];
+        // Set initial total to Zero
+        this.total = 0;
 
-    // Set a list of promotions already applied, so we can skip and don't over-discount
-    this.appliedPromotions = []
+        this.items = [];
+
+        // Set a list of promotions already applied, so we can skip and don't over-discount
+        this.appliedPromotions = []
+
+    }
 
     // Function for applying a promotion
-    const applyPromo = function(promotion, currentTotal){
+    applyPromo(promotion, currentTotal) {
        
+        let newTotal = 0;
+        
         switch(promotion.promotionType){
             case "apply-discount-value-gbp": {
                 newTotal = (currentTotal - promotion.promotionValue);
@@ -24,9 +30,10 @@ const Checkout = function(rules) {
         return newTotal;
     }
 
-    this.calculateTotal = function(){
+    calculateTotal() {
 
         let total = 0;
+        let that = this;
         
         // Loop through items and sum up the prices
         this.items.map((i, x) => {
@@ -35,7 +42,7 @@ const Checkout = function(rules) {
 
         // Process basket promotions
         this.rules.basketPromotions.map(function(bp, x){
-            if(bp.ruleType === "is-over" && total > bp.ruleValue) total = applyPromo(bp, total);
+            if(bp.ruleType === "is-over" && total > bp.ruleValue) total = that.applyPromo(bp, total);
         });
 
         // Update total in memory
@@ -44,7 +51,7 @@ const Checkout = function(rules) {
     }
 
     // Function for scanning one item at a time
-    this.scan = function(item){
+    scan(item) {
 
         // Just one item? Pass in the id on its own (assuming a letter) and we build the object
         if(typeof item === 'string'){
