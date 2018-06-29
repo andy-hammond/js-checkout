@@ -8,7 +8,7 @@ const testBaskets = [
         items: [
             {id: "A", quantity: 1}, {id: "B", quantity: 1}, {id: "C", quantity: 1}
         ],
-        result: 100
+        result: 101
     },
     {
         description: "testing basket #2 (B, A, B, A, A)",
