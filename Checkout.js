@@ -8,6 +8,7 @@ class Checkout  {
         // Set initial total to Zero
         this.total = 0;
 
+        // Set an empty array for items to be scanned
         this.items = [];
 
         // Set a list of promotions already applied, so we can skip and don't over-discount
